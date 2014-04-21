@@ -25,17 +25,15 @@
     };
 
     var superValidate = Script.prototype.validate;
-    Script.prototype.validate = function Script_validate (cb) {
+    Script.prototype.validate = function Script_validate () {
         var self = this;
-        
-        superValidate.call(this, function (err, results) {
-            if (err) { return cb(err); }
 
+        return superValidate.call(this).then(function (results) {
             if (!self.name) {
                 results.push({ prop: 'name', message: 'name must be set' });
             }
 
-            cb(null, results);
+            return results;
         });
     };
 
