@@ -65,8 +65,10 @@ script1.save().then(function (results) {
     });
 }).then(function () {
     // Try to save an invalid script
-    script3.id = null;
-    script3.name = '';
+    delete script3.id;
+    script3.name = 'argh';
+    script3.type = null;
+    script3.startPageId = null;
 
     return script3.save().then(function (results) {
         if (results && results.length > 0) {

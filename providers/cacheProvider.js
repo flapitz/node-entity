@@ -1,5 +1,7 @@
 (function () {
     var Promise = require('bluebird');
+
+    // Memory database
     var entities = {};
 
     /**
