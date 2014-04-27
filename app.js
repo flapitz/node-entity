@@ -44,6 +44,12 @@ script1.save().then(function (results) {
     // Update the 3rd script, and save it
     script3.type = 'hello world';
 
+    if (script3.isNew()) {
+        console.log('Script3 is new');
+    } else {
+        console.log('Script3 is NOT new');
+    }
+
     return script3.save().then(function (results) {
         if (results && results.length > 0) {
             console.log('Validation errors while saving script ' + script3.name + ':');
@@ -84,6 +90,12 @@ script1.save().then(function (results) {
     script3.name = 'script3';
     script3.type = 'asdf';
     script3.startPageId = 'page1';
+
+    if (script3.isNew()) {
+        console.log('Script3 is new');
+    } else {
+        console.log('Script3 is NOT new');
+    }
 
     return Promise.delay(5000).then(function () {
         return script3.save().then(function (results) {
