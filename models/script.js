@@ -42,6 +42,8 @@
     Script.prototype.print = function Script_print () {
         console.log('Script ' + this.name + ':');
         console.log('\tid: ' + this.id);
+        console.log('\tcreatedDate: ' + this.createdDate);
+        console.log('\tmodifiedDate: ' + this.modifiedDate);
         console.log('\ttype: ' + this.type);
         console.log('\tstartPageId: ' + this.startPageId);
     };

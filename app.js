@@ -79,4 +79,23 @@ script1.save().then(function (results) {
 
         console.log('Successfully saved ' + script3.name);
     });
+}).then(function () {
+    script3.id = 'somethingRandom';
+    script3.name = 'script3';
+    script3.type = 'asdf';
+    script3.startPageId = 'page1';
+
+    return Promise.delay(5000).then(function () {
+        return script3.save().then(function (results) {
+            if (results && results.length > 0) {
+                console.log('Validation errors while saving script ' + script3.name + ':');
+                console.log(results);
+                return;
+            }
+
+            console.log('Successfully saved ' + script3.name);
+
+            script3.print();
+        });
+    });
 });
